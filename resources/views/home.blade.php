@@ -1,23 +1,19 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Dashboard') }}</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    {{ __('You are logged in!') }}
-                </div>
+<input type="hidden" id="is_logged" value="1">
+<input type="hidden" id="current_list_id" value="0">
+<div class="container h-100">
+    <div class="d-flex flex-row w-100 h-100 rounded border bg-white">
+        <div class="w-25 h-100 border-end overflow-auto">
+            <div class="input-group mb-3 p-1">
+                <input type="text" class="form-control" id="list_add_text" placeholder="Название списка" aria-label="Название списка" aria-describedby="list_add">
+                <button class="btn btn-primary" type="button" id="list_add">Создать</button>
             </div>
+            <div id="lists-group"></div>
         </div>
+
+        <div class="w-75 h-100 overflow-auto p-2" id="list_info"></div>
     </div>
 </div>
 @endsection

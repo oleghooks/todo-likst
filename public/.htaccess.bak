@@ -19,6 +19,6 @@
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
 	
-	RewriteCond %{REQUEST_URI} (.+)/$
+	RewriteCond %{REQUEST_URI} imagefly
 	RewriteRule \.(?:jpe?g|png)$ index.php
 </IfModule>

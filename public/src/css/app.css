@@ -1,0 +1,6 @@
+html,body,#app{
+    height: 100%;
+}
+.list-group li{
+    cursor: pointer;
+}

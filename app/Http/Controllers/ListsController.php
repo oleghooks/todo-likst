@@ -16,11 +16,11 @@ class ListsController extends Controller
         ]);
         $current_id = $request->input('current_id');
 
-        $list = Lists::where('user_id', Auth::id())->get();
+        $list = Lists::where('user_id', Auth::id())->orderBy('updated_at', 'DESC')->get();
 
-        return view('lists', [
+        return view('lists.list', [
             'current_id' => $current_id,
-            'list' => $list
+            'lists' => $list
         ]);
     }
 
@@ -79,7 +79,25 @@ class ListsController extends Controller
             ]);
         }
         else
-            return "Вы не имеете доступа к этому списку";
+            return response()->json([
+                'status_code' => '404',
+                'desc' => 'Список не найден или уже удален'
+            ], 404);
+    }
+
+    public function edit(Request $request){
+        $request->validate([
+            'id' => 'required|numeric',
+            'title' => 'required|string'
+        ]);
+        $id = $request->input('id');
+        $title = $request->input('title');
+
+        $list = Lists::find($id);
+        if($list->user_id === Auth::id()){
+            $list->title = $title;
+            $list->save();
+        }
     }
 
 

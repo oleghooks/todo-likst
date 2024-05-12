@@ -14,7 +14,18 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @guest
+        @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @else
+        <script src="/src/js/jquery-3.7.1.min.js"></script>
+        <link href="/src/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/src/css/app.css" rel="stylesheet">
+        <script src="/src/js/bootstrap.bundle.min.js"></script>
+        <script src="/src/js/app.js"></script>
+        <script src="/src/js/list.js"></script>
+        <script src="/src/js/tasks.js"></script>
+
+    @endguest
 </head>
 <body>
     <div id="app">

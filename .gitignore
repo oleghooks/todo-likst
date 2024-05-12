@@ -3,6 +3,8 @@
 /public/build
 /public/hot
 /public/storage
+/public/attachs
+/storage/imagefly
 /storage/*.key
 /vendor
 .env
