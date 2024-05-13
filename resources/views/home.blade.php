@@ -8,7 +8,7 @@
         <div class="w-25 h-100 border-end overflow-auto">
             <div class="input-group mb-3 p-1">
                 <input type="text" class="form-control" id="list_add_text" placeholder="Название списка" aria-label="Название списка" aria-describedby="list_add">
-                <button class="btn btn-primary" type="button" id="list_add">Создать</button>
+                <button class="btn btn-primary" type="button" id="list_add" onclick="List.Add();">Создать</button>
             </div>
             <div id="lists-group"></div>
         </div>

@@ -9,8 +9,5 @@ $(document).ready(function(){
             $('main').height($('#app').height() - 105);
             List.Load();
 
-            $('.list_item').click(function (){
-                console.log('teeee');
-            });
         }, 3000);
 });
